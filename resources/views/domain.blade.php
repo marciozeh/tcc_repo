@@ -40,21 +40,21 @@
                             <td>
                                 {{csrf_field()}}
                                 <label>Range: </label>
-                                <input type="text" name="test"><br><br>
+                                <input type="text" name="range"><br><br>
                                 <label>default-lease-time: </label>
-                                <input type="text" ><br><br>
+                                <input type="text" name="default-lease-time" ><br><br>
                                 <label>max-lease-time: </label>
-                                <input type="text" ><br><br>
+                                <input type="text" name="max-lease-time"><br><br>
                                 <label>authoritative: </label>
-                                <input type="text" ><br><br>
+                                <input type="text" name="authoritative"><br><br>
                                 <label>option domain-name-servers: </label>
-                                <input type="text" ><br><br>
+                                <input type="text" name="domain-name-servers"><br><br>
                                 <label>option domain-name: </label>
-                                <input type="text" ><br><br>
+                                <input type="text" name="domain-name"><br><br>
                                 <label>option routers: </label>
-                                <input type="text" ><br><br>
+                                <input type="text" name="routers"><br><br>
                                 <label>interfaces: </label>
-                                <input type="text" ><br><br>
+                                <input type="text" name="interfaces"><br><br>
                                 <!--exemplo para hint
                                 <input type="text" placeholder="enter input" title="Enter input here">
                                 -->
