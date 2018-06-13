@@ -1,0 +1,15 @@
+#Domínio configurado no BIND 
+#option domain-name meudominio;
+default-lease-time 600; #controla o tempo de renovação do IP
+max-lease-time 7200 #determina o tempo que cada máquina pode usar um determinado IP. 
+log-facility local7; 
+ 
+subnet 10.25.160.0 netmask 255.255.255.0 { #Define sua sub-rede 192.168.1.0 com a máscara 255.255.255.0 
+range 10.25.160.2 10.25.160.255;  #faixa de IPs que o cliente pode usar.
+option routers 10.25.160.10; #Este é o gateway padrão (neste caso).
+option broadcast-address 10.25.160.255 ; #Essa linha é o endereço de broadcast (neste caso).
+ 
+#Aqui você coloca os servidores DNS de terceiros ou seu DNS próprio configurado no BIND. Nesse caso coloquei o DNS do Google.
+option domain-name-servers 8.8.8.8; 
+}
+ 
