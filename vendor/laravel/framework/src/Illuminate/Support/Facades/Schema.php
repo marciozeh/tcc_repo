@@ -32,4 +32,9 @@ class Schema extends Facade
     {
         return static::$app['db']->connection()->getSchemaBuilder();
     }
+
+    public function boot()
+    {
+        Schema::defaultStringLength(191);
+    }
 }
