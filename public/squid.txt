@@ -1,5 +1,5 @@
 http_port 3128 transparent
-visible_hostname teste
+visible_hostname teste2
  
 acl all src 0.0.0.0/0.0.0.0 
 acl manager proto cache_object 
@@ -29,14 +29,14 @@ acl QUERY urlpath_regex cgi-bin ?
 no_cache deny QUERY 
  
 cache_mem 100 MB 
-maximum_object_size_in_memory 200 KB
-maximum_object_size 300 MB
-minimum_object_size 400 KB
+maximum_object_size_in_memory 200 KB 
+maximum_object_size 200 MB 
+minimum_object_size 300 KB 
  
 cache_swap_low 90 
 ache_swap_high 95 
  
-cache_dir ufs /var/spool/squid 1000 16 256 
+cache_dir ufs /var/spool/squid 400 16 256 
 cache_access_log /var/log/squid/access.log 
  
 refresh_pattern ^ftp: 15 20% 2280 
