@@ -43,7 +43,7 @@ class SquidController extends Controller
         $port       = $request->input('port');
         $name       = $request->input('name');
         $rede       = $request->input('rede');
-        $email       = $request->input('email');
+        $email      = $request->input('email');
         $cachemem   = $request->input('cachemem');
         $maxmemory  = $request->input('maxmemory');
         $maxobjsize = $request->input('maxobjsize');
