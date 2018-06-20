@@ -19,6 +19,7 @@ class CreateTableFirewall extends Migration
             $table->string('comand');
             $table->string('rule');
             $table->string('active');
+            $table->timestamps();
         });
 
         //regras do iptables

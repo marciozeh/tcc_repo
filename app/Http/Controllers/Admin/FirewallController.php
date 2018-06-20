@@ -10,11 +10,12 @@ class FirewallController extends Controller
 {
     public function index(){
         //como listar por regra
-        $search = Firewall::select('comand','active','rule')
-            //->where('rule','=',$firewall)
-            ->get();
-
-        //return $search[1]['active'];
+        for($i = 1; $i < 12; $i++) {
+            $search[] = Firewall::select('comand', 'active', 'rule')
+                ->where('rule',$i)
+                ->first();
+        }
+        //return $search;
         return view('firewall', compact('search'));
     }
 
@@ -99,21 +100,26 @@ class FirewallController extends Controller
             $firewallData[] = 'off';
         }
 
-        $firewall = Firewall::findOrFail($rule);
+        for ($i = 0; $i < count($firewallData); $i ++){
+            if($firewallData[$i] == "on"){
+                Firewall::where('rule',($i+1))
+                 ->update(['active' => "on"]);
+            }else{
+                Firewall::where('rule',($i+1))
+                    ->update(['active' => "off"]);
+            }
+        }
 
+        for($o = 1; $o < 12; $o++) {
+            $search[] = Firewall::select('comand', 'active', 'rule')
+                ->where('rule',$o)
+                ->first();
+        }
 
-
-        dd($firewallData);
-
-    }
-
-    public function lista(Request $request){
-        //como listar por regra
-        $search = Firewall::select('comand','active','rule')
-            //->where('rule','=',$firewall)
-            ->get();
-
-        //return $search[1]['active'];
+        echo "Atualizado com sucesso";
         return view('firewall', compact('search'));
+
     }
+
+
 }

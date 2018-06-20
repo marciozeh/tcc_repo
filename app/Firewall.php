@@ -10,4 +10,7 @@ class Firewall extends Model
         'comand', 'active', 'rule'
     ];
 
+    protected $table = 'firewalls';
+
+
 }

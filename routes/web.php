@@ -19,7 +19,6 @@ Route::get('/rede', function () {
 Route::prefix('admin')->group(function (){
     Route::get('firewall', 'Admin\\FirewallController@index')->name('firewall.index');
     Route::post('firewall', 'Admin\\FirewallController@send')->name('firewall.send');
-    Route::get('firewall/lista', 'Admin\\FirewallController@lista')->name('firewall.lista');
     Route::get('dhcp', 'Admin\\DhcpController@index')->name('dhcp.index');
     Route::post('dhcp', 'Admin\\DhcpController@send')->name('dhcp.send');
     Route::get('squid', 'Admin\\SquidController@index')->name('squid.index');
