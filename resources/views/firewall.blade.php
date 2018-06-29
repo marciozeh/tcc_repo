@@ -34,9 +34,6 @@ if(isset($_POST["enviar"])){
                         <td>
                             {{csrf_field()}}
 
-                            <label for="other">Regras Firewall</label>
-                            <input type="checkbox" id="firewall" name="firewall" checked=""><br><br>
-
                             <label for="other">Ativar o Redirecionamento</label>
                             <input type="checkbox" name="redirecionamento"  @php if($search[0]['active'] == 'on') {echo "checked";}  @endphp><br><br>
 
@@ -70,6 +67,14 @@ if(isset($_POST["enviar"])){
                             <label for="other">Ativar o Mascaramento da Rede</label>
                             <input type="checkbox" name="maskNet" @php if($search[10]['active'] == 'on') {echo "checked";}  @endphp><br><br>
 
+                            <label>Lista de Portas Liberadas</label></br>
+                            <textarea rows="10" cols="40" maxlength="500" name="portlib"></textarea></br></br>
+
+                            <label>Lista de Portas Bloqueadas</label></br>
+                            <textarea rows="10" cols="40" maxlength="500" name="portblo"></textarea></br></br>
+
+                            <label>Lista de Sites Proibídos</label></br>
+                            <textarea rows="10" cols="40" maxlength="500" name="sites"></textarea></br></br>
                            <!--exemplo para hint
                             <input type="text" placeholder="enter input" title="Enter input here">
                             -->
@@ -78,6 +83,7 @@ if(isset($_POST["enviar"])){
                     </table>
                 </form>
             </div>
+
         </main>
     </body>
 </html>

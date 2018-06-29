@@ -316,10 +316,13 @@ class ComposerStaticInit26d28fa9d1c7f2f2543b70225c09025d
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Firewall' => __DIR__ . '/../..' . '/app/Firewall.php',
         'App\\Http\\Controllers\\Admin\\DhcpController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DhcpController.php',
         'App\\Http\\Controllers\\Admin\\DomainController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DomainController.php',
+        'App\\Http\\Controllers\\Admin\\FirewallController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/FirewallController.php',
         'App\\Http\\Controllers\\Admin\\SargController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/SargController.php',
         'App\\Http\\Controllers\\Admin\\SquidController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/SquidController.php',
+        'App\\Http\\Controllers\\Admin\\WebController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/WebController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',

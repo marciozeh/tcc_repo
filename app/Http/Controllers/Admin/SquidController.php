@@ -10,32 +10,41 @@ class SquidController extends Controller
     public function index(){
 
         $lines = file('C:\xampp\htdocs\projeto_tcc\public\squid.txt');
-        $pesquisas = ['http_port', 'visible_hostname', 'acl redelocal src', 'cache_mgr','cache_mem', 'maximum_object_size_in_memory',
+        $pesquisas = ['http_port', 'visible_hostname', 'acl rede_local src', 'cache_mgr','cache_mem', 'in_memory',
             'maximum_object_size', 'minimum_object_size', 'cache_dir ufs /var/spool/squid', 'transparent'];
+        $flag = 0;
+
         foreach ($pesquisas as $pesquisa) {
             foreach ($lines as $line) {
                 if (strpos($line, $pesquisa) !== false) {
 
-                    if($pesquisa == 'acl redelocal src' || $pesquisa == 'cache_dir ufs /var/spool/squid'){
+                    if($pesquisa == 'acl rede_local src' || $pesquisa == 'cache_dir ufs /var/spool/squid'){
                         $test = preg_split('/ /', $line, 5);
                         $limpa[] = str_ireplace('"', '', $test[3]);
                     }else {
                         if($pesquisa == 'transparent'){
                             $limpa[] = 'on';
                         }else {
-                            $test = preg_split('/ /', $line, 5);
-                            $limpa[] = str_ireplace('"', '', $test[1]);
+
+                            if($pesquisa == 'maximum_object_size' && $flag < 1) {
+                                $flag ++;
+                            }else {
+                                $test = preg_split('/ /', $line, 5);
+                                $limpa[] = str_ireplace('"', '', $test[1]);
+                            }
+
+
                         }
                     }
                 }
             }
         }
         // problema com o maximum_object_size pegando o valor do in_memory, procurar como tratar problema.
-        if($limpa[9] == null){
+        if(count($limpa) == 9){
             $limpa[9] = 'off';
         }
         return view('squid', compact('limpa'));
-        //return $limpa;
+        //dd($limpa);
     }
 
     public function send(Request $request)

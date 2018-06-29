@@ -1,0 +1,23 @@
+#Declaração de variáveis
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+IPTABLES="/sbin/iptables"
+MACLIST="/etc/configuracao_personalizada/macsliberadosfirewall"
+PROGRAMA="/etc/init.d/firewall"
+PORTSLIB="/etc/configuracao_personalizada/portslib"
+PORTSBLO="/etc/configuracao_personalizada/portsblo"
+LAN=eth1
+WAN=eth0
+REDE="192.168.253.0/24"
+SITESNEGADOS=/etc/configuracao_personalizada/sitesnegados
+$IPTABLES -F
+$IPTABLES -F INPUT
+$IPTABLES -F OUTPUT
+$IPTABLES -F FORWARD
+$IPTABLES -t mangle -F
+$IPTABLES -t nat -F
+$IPTABLES -X
+$IPTABLES -P INPUT DROP
+$IPTABLES -P OUTPUT ACCEPT
+$IPTABLES -P FORWARD DROP
+echo "1" > /proc/sys/net/ipv4/ip_forward 
+$PROGRAMA restart

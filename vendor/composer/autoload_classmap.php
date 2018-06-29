@@ -8,10 +8,13 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+    'App\\Firewall' => $baseDir . '/app/Firewall.php',
     'App\\Http\\Controllers\\Admin\\DhcpController' => $baseDir . '/app/Http/Controllers/Admin/DhcpController.php',
     'App\\Http\\Controllers\\Admin\\DomainController' => $baseDir . '/app/Http/Controllers/Admin/DomainController.php',
+    'App\\Http\\Controllers\\Admin\\FirewallController' => $baseDir . '/app/Http/Controllers/Admin/FirewallController.php',
     'App\\Http\\Controllers\\Admin\\SargController' => $baseDir . '/app/Http/Controllers/Admin/SargController.php',
     'App\\Http\\Controllers\\Admin\\SquidController' => $baseDir . '/app/Http/Controllers/Admin/SquidController.php',
+    'App\\Http\\Controllers\\Admin\\WebController' => $baseDir . '/app/Http/Controllers/Admin/WebController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',
     'App\\Http\\Controllers\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/Auth/RegisterController.php',

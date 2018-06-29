@@ -45,7 +45,7 @@ if(isset($_POST["enviar"])){
                             <td>
                                 {{csrf_field()}}
                                 <label for="other">Proxy transparente</label>
-                                <input type="checkbox" name="proxy" checked="{{$limpa[9]}}"><br><br>
+                                <input type="checkbox" name="proxy"  @php if($limpa[9] == 'on') {echo "checked";}  @endphp><br><br>
 
                                 <label>Nome: </label>
                                 <input type="text" name="name" value="{{$limpa[1]}}"><br><br>

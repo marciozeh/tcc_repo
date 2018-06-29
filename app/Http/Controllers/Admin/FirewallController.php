@@ -19,6 +19,7 @@ class FirewallController extends Controller
         return view('firewall', compact('search'));
     }
 
+
     public function send(Request $request){
 
         $redirecionamento   = $request -> input('redirecionamento');
@@ -32,6 +33,9 @@ class FirewallController extends Controller
         $spoofing           = $request -> input('spoofing');
         $shealtScan         = $request -> input('shealtScan');
         $maskNet            = $request -> input('maskNet');
+        $portblo  = $request -> input('portblo');
+        $sites  = $request -> input('sites');
+        $portlib  = $request -> input('portlib');
 
         if($redirecionamento == 'on'){
             $firewallData[] = $redirecionamento;
@@ -110,15 +114,44 @@ class FirewallController extends Controller
             }
         }
 
+        $array = Firewall::where('active',"on")
+            ->pluck('comand')
+            ->toArray();
+
+
+        $filename = 'C:\xampp\htdocs\projeto_tcc\public\firewall.txt';
+        if (is_writable($filename)) {
+            if (!$handle = fopen($filename, "w")) {
+                return "Cannot open file ($filename)";
+                exit;
+            }
+            $fim = '';
+            // insere o valor do array com quebra de linha!
+            foreach ($array as $teste => $value){
+                $fim .= ($value.PHP_EOL);
+            }
+            if (fwrite($handle, $fim) === FALSE) {
+                return "Cannot write to file ($filename)";
+                exit;
+            }
+//            return "Success, wrote ($write1) to file ($filename)";
+
+            fclose($handle);
+
+        } else {
+            return "The file $filename is not writable";
+        }
+
+
         for($o = 1; $o < 12; $o++) {
-            $search[] = Firewall::select('comand', 'active', 'rule')
-                ->where('rule',$o)
+            $search[] = Firewall::where('rule',$o)
+                ->select('comand','rule','active')
                 ->first();
         }
 
         echo "Atualizado com sucesso";
         return view('firewall', compact('search'));
-
+//        dd($search) ;
     }
 
 
